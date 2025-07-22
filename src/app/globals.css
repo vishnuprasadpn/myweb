@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +12,62 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: #f5f6fa;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+section, .glass-card, .timeline-glass-card {
+  background: #18181b !important;
+  color: #f5f6fa !important;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+.card, .glass-card, .timeline-glass-card {
+  background: #18181b !important;
+  color: #f5f6fa !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff !important;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  line-height: 1.2;
+}
+
+p, span, li, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl {
+  color: #e0e6ed !important;
+  line-height: 1.7;
+}
+
+a, .text-link, button, .btn {
+  color: #60a5fa;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+  outline: none;
+  transition: color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+a:hover, .text-link:hover, button:hover, .btn:hover {
+  color: #a78bfa;
+  background: rgba(60,60,80,0.12);
+}
+
+a:focus, .text-link:focus, button:focus, .btn:focus {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #1e293b;
+  background: rgba(60,60,80,0.18);
+}
+
+a:active, .text-link:active, button:active, .btn:active {
+  color: #fff;
+  background: #3b82f6;
+}
+
+strong, b {
+  color: #fff !important;
 }
