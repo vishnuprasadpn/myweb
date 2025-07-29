@@ -130,7 +130,7 @@ export default function HeroSection() {
               initial={{ opacity: 0.3 }}
               animate={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              aria-hidden="true"
+              aria-hidden="true" 
             />
           </motion.a> */}
         </div>
