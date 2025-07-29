@@ -1,13 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const roles = [
   "Full Stack Developer",
-  "UI/UX Enthusiast",
-  "Cloud Architect",
   "Product Builder",
-  "Tech Lead"
+  "Tech Lead",
+  "Team Player"
 ];
 
 export default function HeroSection() {
@@ -118,7 +117,7 @@ export default function HeroSection() {
               aria-hidden="true"
             />
           </motion.a>
-          <motion.a
+          {/* <motion.a
             href="#projects"
             className="inline-block px-7 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all relative overflow-hidden"
             whileHover={{ scale: 1.06, boxShadow: "0 0 24px 4px #38bdf8" }}
@@ -133,7 +132,7 @@ export default function HeroSection() {
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               aria-hidden="true"
             />
-          </motion.a>
+          </motion.a> */}
         </div>
       </div>
     </section>
