@@ -123,6 +123,16 @@ export default function SkillsCloudSection() {
     layout.start();
   }, []);
 
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "VISHNUPRASAD-PN.pdf"; // relative to public/
+    link.download = "sample.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -158,7 +168,7 @@ export default function SkillsCloudSection() {
           </p>
           <button
             className="mt-6 px-6 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold shadow-lg hover:scale-105 hover:from-blue-400 hover:to-indigo-400 transition-all duration-300"
-            onClick={() => setModal({ text: "Download Resume coming soon!" })}
+            onClick={handleDownload}
           >
             Download Resume
           </button>
