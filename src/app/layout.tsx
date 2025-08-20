@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Full Stack Engineer - Vishnu Prasad PN",
-  description: "My personnel website",
+  title: "Vishnuprasad PN - Full Stack Engineer",
+  description: "Full Stack Engineer with 10+ years of experience building scalable, performant web applications. Specialized in Angular, React, and Shopify.",
 };
 
 export default function RootLayout({
@@ -25,19 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={
-          geistSans.variable +
-          " min-h-screen bg-no-repeat bg-fixed"
-        }
-        style={{
-          background: `
-            radial-gradient(ellipse at 60% 40%, rgba(36,44,62,0.92) 0%, rgba(24,26,36,0.98) 80%, #181824 100%),
-            linear-gradient(120deg, #23233a 0%, #181824 100%)
-          `,
-          backgroundBlendMode: "overlay",
-        }}
-      >
+      <body className={geistSans.variable}>
         {children}
       </body>
     </html>
