@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-secondary text-sm mb-4 md:mb-0 hover:text-accent transition-colors">
-            © 2024 Jack Harper. All Rights Reserved.
+            © 2025 Vishnu Prasad PN. All Rights Reserved.
           </div>
 
           <div className="text-accent text-sm mb-4 md:mb-0 hover:text-accent-hover transition-colors">

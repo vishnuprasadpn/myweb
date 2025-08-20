@@ -121,9 +121,14 @@ export default function ProjectsSection() {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <button className="btn-primary px-8 py-3 text-lg">
+          <a 
+            href="/VISHNUPRASAD-PN.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn-primary px-8 py-3 text-lg inline-block"
+          >
             View Full Resume
-          </button>
+          </a>
         </div>
       </div>
     </section>
