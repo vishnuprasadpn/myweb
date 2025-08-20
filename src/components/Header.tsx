@@ -28,20 +28,20 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="nav-link">Home</a>
             <a href="#portfolio" className="nav-link">Portfolio</a>
-            <div className="relative group">
+            {/* <div className="relative group">
               <a href="#pages" className="nav-link flex items-center">
                 pages
                 <svg className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </a>
-            </div>
+            </div> */}
             <a href="#contact" className="nav-link">Contact</a>
           </nav>
 
           {/* Social Icons */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-white hover:text-accent transition-all duration-300 hover:scale-110">
+            {/* <a href="#" className="text-white hover:text-accent transition-all duration-300 hover:scale-110">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
               </svg>
@@ -55,7 +55,7 @@ export default function Header() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,11 +75,11 @@ export default function Header() {
             <nav className="flex flex-col space-y-4">
               <a href="#home" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</a>
               <a href="#portfolio" className="nav-link" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
-              <a href="#pages" className="nav-link" onClick={() => setIsMenuOpen(false)}>Pages</a>
+              {/* <a href="#pages" className="nav-link" onClick={() => setIsMenuOpen(false)}>Pages</a> */}
               <a href="#contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</a>
             </nav>
             <div className="flex items-center space-x-4 mt-4">
-              <a href="#" className="text-white hover:text-accent transition-all duration-300 hover:scale-110">
+              {/* <a href="#" className="text-white hover:text-accent transition-all duration-300 hover:scale-110">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                 </svg>
@@ -93,7 +93,7 @@ export default function Header() {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
-              </a>
+              </a> */}
             </div>
           </div>
         )}

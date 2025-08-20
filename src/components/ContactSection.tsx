@@ -51,8 +51,8 @@ export default function ContactSection() {
         <div className="section-subtitle">CONTACT</div>
         <h2 className="section-title">Get In Touch</h2>
         <p className="section-description">
-          I'm always open to discussing new opportunities, interesting projects, and innovative ideas. 
-          Feel free to reach out if you'd like to connect or collaborate.
+          I&apos;m always open to discussing new opportunities, interesting projects, and innovative ideas. 
+          Feel free to reach out if you&apos;d like to connect or collaborate.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
