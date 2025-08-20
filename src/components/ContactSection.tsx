@@ -10,7 +10,9 @@ export default function ContactSection() {
         </svg>
       ),
       label: "Email",
-      value: "vishnuprasad1990@gmail.com"
+      value: "vishnuprasad1990@gmail.com",
+      action: "mailto:vishnuprasad1990@gmail.com",
+      type: "email"
     },
     {
       icon: (
@@ -20,7 +22,9 @@ export default function ContactSection() {
         </svg>
       ),
       label: "Location",
-      value: "Bangalore, Karnataka - 560076"
+      value: "Bangalore, Karnataka - 560076",
+      action: "https://maps.google.com/?q=Bangalore,Karnataka,560076",
+      type: "location"
     }
   ];
 
@@ -32,7 +36,9 @@ export default function ContactSection() {
         </svg>
       ),
       label: "LinkedIn",
-      value: "linkedin.com/in/vishnuprasadpn"
+      value: "linkedin.com/in/vishnuprasadpn",
+      action: "https://linkedin.com/in/vishnuprasadpn",
+      type: "linkedin"
     },
     {
       icon: (
@@ -41,9 +47,19 @@ export default function ContactSection() {
         </svg>
       ),
       label: "GitHub",
-      value: "github.com/vishnuprasadpn"
+      value: "github.com/vishnuprasadpn",
+      action: "https://github.com/vishnuprasadpn",
+      type: "github"
     }
   ];
+
+  const handleCardClick = (item: any) => {
+    if (item.type === 'email') {
+      window.location.href = item.action;
+    } else {
+      window.open(item.action, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section id="contact" className="section">
@@ -58,7 +74,12 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Contact Information */}
           {contactInfo.map((contact, index) => (
-            <div key={index} className="contact-card">
+            <div 
+              key={index} 
+              className="contact-card cursor-pointer"
+              onClick={() => handleCardClick(contact)}
+              title={`Click to ${contact.type === 'email' ? 'send email' : 'view location'}`}
+            >
               <div className="contact-icon">
                 {contact.icon}
               </div>
@@ -69,7 +90,12 @@ export default function ContactSection() {
 
           {/* Social Handles */}
           {socialHandles.map((social, index) => (
-            <div key={index} className="contact-card">
+            <div 
+              key={index} 
+              className="contact-card cursor-pointer"
+              onClick={() => handleCardClick(social)}
+              title={`Click to visit ${social.label}`}
+            >
               <div className="contact-icon">
                 {social.icon}
               </div>
