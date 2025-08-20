@@ -50,7 +50,7 @@ export default function ProjectsSection() {
       category: 'MOBILE APPS',
       image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
       title: 'QLEZ Smart Store Platform',
-      description: 'IoT-based retail automation platform processing 1000+ products/min'
+      description: 'Hardware-integrated software system with embedded systems, mobile inventory app, and modern full-stack technology'
     },
     {
       id: 4,
