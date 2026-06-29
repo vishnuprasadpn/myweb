@@ -33,8 +33,6 @@ export default function SkillsCloudSection() {
   const svgRef = useRef<SVGSVGElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
-  const [modal, setModal] = useState<{ text: string } | null>(null);
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   // Intersection Observer for entrance animation

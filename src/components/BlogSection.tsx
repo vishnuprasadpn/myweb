@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function BlogSection() {
   const articles = [
     {
@@ -59,9 +61,10 @@ export default function BlogSection() {
           <div className="lg:col-span-2 space-y-8">
             {largeArticles.map((article) => (
               <div key={article.id} className="article-card">
-                <img 
-                  src={article.image} 
+                <Image
+                  src={article.image}
                   alt={article.title}
+                  fill
                   className="article-image"
                 />
                 <div className="article-content">
@@ -79,9 +82,10 @@ export default function BlogSection() {
           <div className="space-y-6">
             {smallArticles.map((article) => (
               <div key={article.id} className="article-card">
-                <img 
-                  src={article.image} 
+                <Image
+                  src={article.image}
                   alt={article.title}
+                  fill
                   className="article-image"
                 />
                 <div className="article-content">

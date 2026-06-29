@@ -63,7 +63,7 @@ export default function ExperienceTimeline() {
     <section className="w-full py-32 px-2 md:px-0 relative overflow-x-clip" aria-label="Experience">
       <h2 className="text-4xl font-extrabold text-center mb-14 tracking-tight text-white relative z-10">Experience</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 max-w-6xl mx-auto relative z-10">
-        {experiences.map((exp, idx) => (
+        {experiences.map((exp) => (
           <motion.div
             key={exp.title + exp.company}
             initial="offscreen"

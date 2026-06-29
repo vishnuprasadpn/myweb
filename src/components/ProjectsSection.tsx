@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function ProjectsSection() {
@@ -101,10 +102,11 @@ export default function ProjectsSection() {
               className={`portfolio-item ${isVisible ? 'stagger-animation' : ''}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <img 
-                src={item.image} 
+              <Image
+                src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="overlay">
                 <div className="text-white text-center p-6">

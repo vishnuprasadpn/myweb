@@ -1,5 +1,4 @@
 "use client";
-import { Mail, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const contactInfo = [
@@ -53,7 +52,7 @@ export default function ContactSection() {
     }
   ];
 
-  const handleCardClick = (item: any) => {
+  const handleCardClick = (item: { type: string; action: string }) => {
     if (item.type === 'email') {
       window.location.href = item.action;
     } else {

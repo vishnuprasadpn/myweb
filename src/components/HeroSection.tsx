@@ -1,13 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const roles = [
-  "Full Stack Developer",
-  "Product Builder",
-  "Tech Lead",
-  "Team Player"
-];
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,10 +67,11 @@ export default function HeroSection() {
           <div className="flex justify-center relative z-10 mt-8 lg:mt-0 shrink-0">
             <div className="relative">
               <div className="size-64 sm:size-72 lg:size-60 xl:size-72 rounded-full overflow-hidden border-2 border-accent bg-card-bg isolate">
-                <img 
-                  src="/myprofilepic.jpeg" 
-                  alt="Vishnuprasad PN" 
-                  className="size-full object-cover object-[center_25%] scale-105"
+                <Image
+                  src="/myprofilepic.jpeg"
+                  alt="Vishnuprasad PN"
+                  fill
+                  className="object-cover object-[center_25%] scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent to-accent opacity-20 pointer-events-none"></div>
               </div>
