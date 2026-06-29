@@ -76,7 +76,7 @@ export default function HeroSection() {
               <div className="w-80 h-80 rounded-full bg-card-bg border-2 border-accent flex items-center justify-center overflow-hidden float-animation">
                 <div className="w-72 h-72 rounded-full overflow-hidden relative">
                   <img 
-                    src="/vishnuprasadpn.jpeg" 
+                    src="/myprofilepic.jpeg" 
                     alt="Vishnuprasad PN" 
                     className="w-full h-full object-cover"
                   />
