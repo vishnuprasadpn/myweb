@@ -45,10 +45,10 @@ export default function HeroSection() {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Column - Name and Social Links */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 float-animation">
+          <div className="text-center lg:text-left relative z-20 min-w-0 lg:pr-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 float-animation">
               VISHNUPRASAD PN.
             </h1>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-secondary">
@@ -71,20 +71,16 @@ export default function HeroSection() {
           </div>
 
           {/* Center Column - Profile Image */}
-          <div className="flex justify-center">
+          <div className="flex justify-center relative z-10 mt-8 lg:mt-0 shrink-0">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full bg-card-bg border-2 border-accent flex items-center justify-center overflow-hidden float-animation">
-                <div className="w-72 h-72 rounded-full overflow-hidden relative">
-                  <img 
-                    src="/myprofilepic.jpeg" 
-                    alt="Vishnuprasad PN" 
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Glowing overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-transparent to-accent opacity-20"></div>
-                </div>
+              <div className="size-64 sm:size-72 lg:size-60 xl:size-72 rounded-full overflow-hidden border-2 border-accent bg-card-bg isolate">
+                <img 
+                  src="/myprofilepic.jpeg" 
+                  alt="Vishnuprasad PN" 
+                  className="size-full object-cover object-[center_25%] scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent to-accent opacity-20 pointer-events-none"></div>
               </div>
-              {/* Floating elements around the image */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-60 animate-pulse"></div>
               <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-accent rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
             </div>
