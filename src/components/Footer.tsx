@@ -2,48 +2,45 @@
 
 import { useState, useEffect } from 'react';
 
+const tech = ['Angular','React','Next.js','TypeScript','Spring Boot','Node.js','Python','Flutter','AWS','Docker','PostgreSQL','Shopify','Ionic','Azure'];
+
 export default function Footer() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
+  const [show, setShow] = useState(false);
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const fn = () => setShow(window.scrollY > 300);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-secondary text-sm mb-4 md:mb-0 hover:text-accent transition-colors">
-            © 2025 Vishnu Prasad PN. All Rights Reserved.
-          </div>
-
-          <div className="text-accent text-sm mb-4 md:mb-0 hover:text-accent-hover transition-colors">
-            Designed with ❤️
-          </div>
+    <>
+      <div className="marquee-wrap">
+        <div className="marquee-track">
+          {[...tech, ...tech].map((t, i) => (
+            <span key={i} className="marquee-item">
+              {t}<span className="marquee-dot">●</span>
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* Enhanced Scroll to Top Button */}
-      {showScrollTop && (
+      <footer className="site-footer wrap">
+        <span>© {new Date().getFullYear()} Vishnuprasad PN</span>
+        <span style={{ color: 'var(--lime)' }}>Full Stack Engineer</span>
+        <span>Bangalore, India</span>
+      </footer>
+
+      {show && (
         <button
-          onClick={scrollToTop}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="scroll-top-btn"
-          aria-label="Scroll to top"
+          aria-label="Back to top"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
           </svg>
         </button>
       )}
-    </footer>
+    </>
   );
-} 
+}

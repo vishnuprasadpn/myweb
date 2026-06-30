@@ -22,11 +22,46 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <h2 className="text-2xl font-bold text-white mb-2">Vishnuprasad PN</h2>
-          <p className="text-secondary">Loading Portfolio...</p>
+      <div style={{
+        minHeight: '100vh',
+        background: 'var(--black)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 20,
+      }}>
+        {/* Spinner */}
+        <div style={{
+          width: 40,
+          height: 40,
+          border: '2px solid var(--rule)',
+          borderTopColor: 'var(--lime)',
+          borderRadius: '50%',
+          animation: 'spin 0.8s linear infinite',
+        }} />
+
+        {/* Name */}
+        <div style={{ textAlign: 'center' }}>
+          <p style={{
+            fontFamily: 'var(--mono)',
+            fontSize: '0.68rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--dim)',
+            marginBottom: 6,
+          }}>
+            Vishnuprasad PN
+          </p>
+          <p style={{
+            fontFamily: 'var(--mono)',
+            fontSize: '0.6rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--dimmer)',
+          }}>
+            Loading portfolio<span style={{ color: 'var(--lime)' }}>_</span>
+          </p>
         </div>
       </div>
     );

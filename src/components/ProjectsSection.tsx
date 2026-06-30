@@ -1,138 +1,134 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+
+const projects = [
+  {
+    num: '01',
+    title: 'Neuromorphic Machines SaaS',
+    cat: 'SaaS Product',
+    year: '2023',
+    tags: ['Angular', 'React', 'Shopify'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    num: '02',
+    title: 'Fabric Monde ERP',
+    cat: 'Enterprise Software',
+    year: '2022',
+    tags: ['Spring Boot', 'Angular', 'PostgreSQL'],
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    num: '03',
+    title: 'QLEZ Smart Store Platform',
+    cat: 'IoT + Mobile',
+    year: '2021',
+    tags: ['Ionic', 'Node.js', 'IoT'],
+    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    num: '04',
+    title: 'Marketing Automation Suite',
+    cat: 'Internal Tooling',
+    year: '2020',
+    tags: ['React', 'Python', 'AWS'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+  },
+];
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState('ALL');
-  const [isVisible, setIsVisible] = useState(false);
+  const [vis, setVis] = useState(false);
+  const [thumb, setThumb] = useState<{ src: string; x: number; y: number } | null>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
+    const o = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVis(true); },
+      { threshold: 0.05 }
     );
-
-    const element = document.getElementById('portfolio');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
+    if (ref.current) o.observe(ref.current);
+    return () => o.disconnect();
   }, []);
 
-  const categories = ['ALL', 'SaaS PRODUCTS', 'ERP SYSTEMS', 'MOBILE APPS', 'WEB APPLICATIONS'];
+  const handleMouseMove = useCallback((e: React.MouseEvent, src: string) => {
+    setThumb({ src, x: e.clientX + 20, y: e.clientY - 75 });
+  }, []);
 
-  const portfolioItems = [
-    {
-      id: 1,
-      category: 'SaaS PRODUCTS',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80',
-      title: 'Neuromorphic Machines SaaS',
-      description: 'Core SaaS product with Angular, React, and Shopify integration'
-    },
-    {
-      id: 2,
-      category: 'ERP SYSTEMS',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      title: 'Fabric Monde ERP System',
-      description: 'Full-fledged ERP for sales, inventory, and vendor operations'
-    },
-    {
-      id: 3,
-      category: 'MOBILE APPS',
-      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      title: 'QLEZ Smart Store Platform',
-      description: 'Hardware-integrated software system with embedded systems, mobile inventory app, and modern full-stack technology'
-    },
-    {
-      id: 4,
-      category: 'WEB APPLICATIONS',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      title: 'Marketing Automation Tools',
-      description: 'Internal tools for automating marketing campaigns'
-    }
-  ];
-
-  const filteredItems = activeFilter === 'ALL' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeFilter);
+  const handleMouseLeave = useCallback(() => setThumb(null), []);
 
   return (
-    <section id="portfolio" className="section">
-      <div className="container">
-        <div className={`section-subtitle ${isVisible ? 'loading' : ''}`}>WORK EXPERIENCE</div>
-        <h2 className={`section-title ${isVisible ? 'loading' : ''}`}>My Professional Journey</h2>
-        <p className={`section-description ${isVisible ? 'loading' : ''}`}>
-          Over 10+ years of experience building scalable applications, leading technical teams, and delivering 
-          impactful solutions across various industries and technologies.
-        </p>
+    <section id="portfolio" ref={ref}>
+      <div className="wrap">
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, index) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 font-semibold ${
-                activeFilter === category
-                  ? 'bg-accent text-background shadow-lg scale-105'
-                  : 'text-secondary hover:text-accent hover:bg-accent hover:bg-opacity-10'
-              } ${isVisible ? 'stagger-animation' : ''}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {category}
-            </button>
-          ))}
+        <div className="section-header">
+          <span className="section-num">002</span>
+          <span className="section-name">Selected Work</span>
         </div>
 
-        {/* Portfolio Grid */}
-        <div className="portfolio-grid">
-          {filteredItems.map((item, index) => (
-            <div 
-              key={item.id} 
-              className={`portfolio-item ${isVisible ? 'stagger-animation' : ''}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+        <div style={{
+          padding: '48px 0 32px',
+          borderBottom: '1px solid var(--rule)',
+          display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap',
+        }}>
+          <h2 style={{
+            fontSize: 'clamp(2rem, 4.5vw, 3.8rem)',
+            fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1,
+            textTransform: 'uppercase',
+          }}>
+            Projects<br />
+            <span style={{ WebkitTextStroke: '1.5px var(--dimmer)', color: 'transparent' }}>Shipped</span>
+          </h2>
+          <a
+            href="/VISHNUPRASAD-PN.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-border"
+            style={{ alignSelf: 'flex-end' }}
+          >
+            Full Resume ↗
+          </a>
+        </div>
+
+        <div className="projects-list">
+          {projects.map((p, i) => (
+            <div
+              key={p.num}
+              className={`project-row ${vis ? `au au-${Math.min(i + 1, 5)}` : ''}`}
+              style={{ opacity: vis ? undefined : 0 }}
+              onMouseMove={e => handleMouseMove(e, p.image)}
+              onMouseLeave={handleMouseLeave}
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-              <div className="overlay">
-                <div className="text-white text-center p-6">
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm mb-4 opacity-90">{item.description}</p>
-                  <p className="text-xs bg-accent text-background px-3 py-1 rounded-full inline-block">
-                    {item.category}
-                  </p>
+              <span className="proj-num">{p.num}</span>
+
+              <div>
+                <div className="proj-title">{p.title}</div>
+                <div style={{ fontSize: '0.68rem', fontFamily: 'var(--mono)', color: 'var(--dimmer)', marginTop: 4, letterSpacing: '0.08em' }}>
+                  {p.cat} · {p.year}
+                </div>
+              </div>
+
+              <div className="proj-right">
+                <div className="proj-tags">
+                  {p.tags.map(t => <span key={t} className="proj-tag">{t}</span>)}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* View More Button */}
-        <div className="text-center mt-12">
-          <a 
-            href="/VISHNUPRASAD-PN.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn-primary px-8 py-3 text-lg inline-block"
-          >
-            View Full Resume
-          </a>
-        </div>
       </div>
+
+      {/* Global floating thumbnail */}
+      {thumb && (
+        <div
+          className="proj-thumb visible"
+          style={{ left: thumb.x, top: thumb.y }}
+        >
+          <Image src={thumb.src} alt="" fill className="object-cover" />
+        </div>
+      )}
     </section>
   );
-} 
+}

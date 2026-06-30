@@ -1,103 +1,68 @@
 import Image from "next/image";
 
+const articles = [
+  { id: 1, date: "Apr 2019", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80", title: "Getting Started with Static Sites — Jekyll & Beyond" },
+  { id: 2, date: "Mar 2019", image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80", title: "WordPress at Scale — Managing Growth Without Chaos" },
+  { id: 3, date: "Feb 2019", image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80", title: "Picking the Right Design System for Your Stack" },
+];
+
 export default function BlogSection() {
-  const articles = [
-    {
-      id: 1,
-      date: "08 Apr 2019",
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1016&q=80",
-      title: "Welcome to Jekyll! Go ahead and edit",
-      excerpt: "",
-      isLarge: true
-    },
-    {
-      id: 2,
-      date: "10 Mar 2019",
-      image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1058&q=80",
-      title: "WordPress hostin manage your growth Nullam",
-      excerpt: "",
-      isLarge: true
-    },
-    {
-      id: 3,
-      date: "09 Mar 2019",
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      title: "html5 Static Site Generator For...",
-      excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      isLarge: false
-    },
-    {
-      id: 4,
-      date: "09 Feb 2019",
-      image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      title: "Just Trying And Enjoying magna...",
-      excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      isLarge: false
-    },
-    {
-      id: 5,
-      date: "09 Feb 2019",
-      image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      title: "Easily choose from thousan of...",
-      excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      isLarge: false
-    }
-  ];
-
-  const largeArticles = articles.filter(article => article.isLarge);
-  const smallArticles = articles.filter(article => !article.isLarge);
-
   return (
-    <section id="blog" className="section">
-      <div className="container">
-        <div className="section-subtitle">LATEST NEWS</div>
-        <h2 className="section-title">My Latest Articles</h2>
-        <p className="section-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+    <section id="blog">
+      <div className="wrap">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Large Articles */}
-          <div className="lg:col-span-2 space-y-8">
-            {largeArticles.map((article) => (
-              <div key={article.id} className="article-card">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="article-image"
-                />
-                <div className="article-content">
-                  <div className="article-date">{article.date}</div>
-                  <h3 className="article-title">{article.title}</h3>
-                  <a href="#" className="text-accent hover:text-accent-hover transition-colors">
-                    Read More
+        <div className="section-header">
+          <span className="section-num">004</span>
+          <span className="section-name">Writing</span>
+        </div>
+
+        <div style={{ padding: '48px 0 40px' }}>
+          <h2 style={{
+            fontSize: 'clamp(2rem, 4.5vw, 3.8rem)',
+            fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1,
+            textTransform: 'uppercase', marginBottom: 36,
+          }}>
+            Latest<br />
+            <span style={{ WebkitTextStroke: '1.5px var(--dimmer)', color: 'transparent' }}>Articles</span>
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 1, background: 'var(--rule)' }}>
+            {articles.map(a => (
+              <article
+                key={a.id}
+                style={{
+                  background: 'var(--black)', padding: 0, cursor: 'pointer',
+                  display: 'flex', flexDirection: 'column',
+                }}
+              >
+                <div style={{ position: 'relative', height: 180, overflow: 'hidden' }}>
+                  <Image
+                    src={a.image} alt={a.title} fill
+                    className="object-cover"
+                    style={{ transition: 'transform 0.5s ease' }}
+                  />
+                </div>
+                <div style={{ padding: '20px 24px 24px', flex: 1, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <span style={{ fontSize: '0.62rem', fontFamily: 'var(--mono)', letterSpacing: '0.14em', color: 'var(--lime)' }}>
+                    {a.date}
+                  </span>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 700, lineHeight: 1.4, color: 'var(--white)' }}>
+                    {a.title}
+                  </h3>
+                  <a href="#" style={{
+                    fontSize: '0.68rem', fontFamily: 'var(--mono)', letterSpacing: '0.1em',
+                    textTransform: 'uppercase', color: 'var(--dimmer)', textDecoration: 'none',
+                    marginTop: 'auto',
+                  }}>
+                    Read →
                   </a>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Small Articles */}
-          <div className="space-y-6">
-            {smallArticles.map((article) => (
-              <div key={article.id} className="article-card">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="article-image"
-                />
-                <div className="article-content">
-                  <div className="article-date">{article.date}</div>
-                  <h3 className="article-title">{article.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed">{article.excerpt}</p>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
-} 
+}
