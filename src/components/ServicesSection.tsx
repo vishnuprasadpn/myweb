@@ -92,6 +92,7 @@ export default function ServicesSection() {
                 <div style={{ fontSize: '0.8rem', color: 'var(--dim)', marginTop: 6, lineHeight: 1.7, maxWidth: 560 }}>
                   {s.desc}
                 </div>
+                <div className="srv-stack-mobile">{s.stack}</div>
               </div>
 
               <div className="srv-meta">

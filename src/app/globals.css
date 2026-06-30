@@ -422,3 +422,111 @@ hr.rule { border: none; border-top: 1px solid var(--rule); }
 .au-3 { animation-delay: 0.25s; }
 .au-4 { animation-delay: 0.35s; }
 .au-5 { animation-delay: 0.45s; }
+
+/* ═══════════════════════════════════════════════
+   MOBILE  (≤ 640px)
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* Header */
+  .site-header__inner { padding: 14px 0; }
+
+  /* Hero meta — hide middle item on small screens */
+  .hero__meta-location { display: none; }
+
+  /* Hero name smaller on phones */
+  .hero__name { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+
+  /* Hero left — tighten vertical gaps */
+  .hero__left { padding: 20px 0; gap: 0; justify-content: flex-start; }
+  .hero__left > * + * { margin-top: 20px; }
+
+  /* Hero desc — full width */
+  .hero__desc { max-width: 100%; font-size: 0.85rem; }
+
+  /* Hero stats — 2×2 grid instead of 4-in-a-row */
+  .hero__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero__stat {
+    padding: 14px 16px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero__stat:nth-child(2) { border-right: none; }
+  .hero__stat:nth-child(3) { border-bottom: none; }
+  .hero__stat:nth-child(4) { border-right: none; border-bottom: none; }
+  .hero__stat-num { font-size: 1.3rem; }
+
+  /* Services — hide the stack text, keep num + title only */
+  .service-row {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .srv-meta { display: none; }
+  .srv-title { font-size: 1.05rem; }
+  /* show stack below title instead */
+  .srv-stack-mobile {
+    display: block;
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+    color: var(--dimmer);
+    margin-top: 4px;
+  }
+
+  /* Projects — hide tags column */
+  .project-row {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .proj-right { display: none; }
+  .proj-title { font-size: 1rem; }
+
+  /* Contact */
+  .contact-section { padding: 48px 0; }
+  .contact-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-top: 28px;
+    margin-top: 28px;
+  }
+  .contact-email-link { font-size: 1rem; word-break: break-all; }
+
+  /* Footer */
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 0;
+  }
+
+  /* Section headings */
+  .section-header { padding: 16px 0; }
+}
+
+/* ═══════════════════════════════════════════════
+   TABLET  (641px – 900px)
+═══════════════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 900px) {
+
+  /* Hero stats — tighter padding on tablet */
+  .hero__stat { padding: 14px 16px; }
+  .hero__stat-num { font-size: 1.3rem; }
+  .hero__stat-label { font-size: 0.58rem; }
+
+  /* Services — hide stack on tablet too */
+  .service-row { grid-template-columns: 50px 1fr; gap: 20px; }
+  .srv-meta { display: none; }
+
+  /* Projects — hide tags on tablet */
+  .project-row { grid-template-columns: 44px 1fr; gap: 20px; }
+  .proj-right { display: none; }
+
+  /* Contact */
+  .contact-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+}

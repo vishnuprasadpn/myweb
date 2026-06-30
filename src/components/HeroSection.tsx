@@ -37,12 +37,12 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="hero">
-      <div style={{ maxWidth: 1440, width: '100%', margin: '0 auto', padding: '0 48px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ maxWidth: 1440, width: '100%', margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)', display: 'flex', flexDirection: 'column', flex: 1 }}>
 
         {/* ── Meta strip ── */}
         <div className="hero__meta">
           <span>© 2026 — Vishnuprasad PN</span>
-          <span>Bangalore, India</span>
+          <span className="hero__meta-location">Bangalore, India</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
             <span style={{
               width: 6, height: 6, borderRadius: '50%',
